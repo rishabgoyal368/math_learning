@@ -8,17 +8,17 @@
         </a>
     </li>
     <li class="menu-item ">
-      <!--   <a href="#" class="open-dropdown menu-link">
+        <a href="#" class="open-dropdown menu-link">
             <span class="menu-label">
                 <span class="menu-name">Manage User
                     <span class="menu-arrow"></span>
                 </span>
             </span>
-        </a> -->
+        </a>
         <!--submenu-->
         <ul class="sub-menu">
 
-         <!--    <li class="menu-item ">
+            <li class="menu-item ">
                 <a href="{{url('admin/manage-users')}}" class=' menu-link'>
                     <span class="menu-label">
                         <span class="menu-name">Users</span>
@@ -27,7 +27,7 @@
                         <i class="icon-placeholder  mdi mdi-shape-circle-plus "></i>
                     </span>
                 </a>
-            </li> -->
+            </li>
         </ul>
     </li>
  
