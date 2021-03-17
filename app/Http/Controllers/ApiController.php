@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use JWTAuth;
+use \Firebase\JWT\JWT;
 use Validator;
 use IlluminateHttpRequest;
 use AppHttpRequestsRegisterAuthRequest;
@@ -19,6 +19,7 @@ class ApiController extends Controller
     public function user_registration(Request $request)
     {
         $data = $request->all();
+        // print_r($data); die;
         $validator = Validator::make(
             $request->all(),
             [
@@ -69,6 +70,8 @@ class ApiController extends Controller
     public function user_login(Request $request)
     {
         $credentials = $request->only('email', 'password');
+        // print_r('here'); die;
+
         $validator = Validator::make(
             $request->all(),
             [
@@ -193,24 +196,24 @@ class ApiController extends Controller
         return response()->json(['success' => true, 'data' => $user], 200);
     }
 
-    public function updateProfile(Request $request)
-    {
-        return $data = $request->all();
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'first_name' => 'required',
-                'last_name'     => 'required',
-                'profile_image'     => 'required',
-                'mobile_number' => 'required|numeric'
-            ]
-        );
+    // public function updateProfile(Request $request)
+    // {
+    //     return $data = $request->all();
+    //     $validator = Validator::make(
+    //         $request->all(),
+    //         [
+    //             'first_name' => 'required',
+    //             'last_name'     => 'required',
+    //             'profile_image'     => 'required',
+    //             'mobile_number' => 'required|numeric'
+    //         ]
+    //     );
 
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 200);
-        }
+    //     if ($validator->fails()) {
+    //         return response()->json(['error' => $validator->errors()], 200);
+    //     }
 
-    }
+    // }
 
     // public function logout()
     // {
