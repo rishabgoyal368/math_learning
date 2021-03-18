@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use \Firebase\JWT\JWT;
+use JWTAuth;
 use Validator;
 use IlluminateHttpRequest;
 use AppHttpRequestsRegisterAuthRequest;
-// use TymonJWTAuthExceptionsJWTException;
+use TymonJWTAuthExceptionsJWTException;
 use SymfonyComponentHttpFoundationResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,7 +19,6 @@ class ApiController extends Controller
     public function user_registration(Request $request)
     {
         $data = $request->all();
-        // print_r($data); die;
         $validator = Validator::make(
             $request->all(),
             [
@@ -196,31 +195,41 @@ class ApiController extends Controller
         return response()->json(['success' => true, 'data' => $user], 200);
     }
 
-    // public function updateProfile(Request $request)
-    // {
-    //     return $data = $request->all();
-    //     $validator = Validator::make(
-    //         $request->all(),
-    //         [
-    //             'first_name' => 'required',
-    //             'last_name'     => 'required',
-    //             'profile_image'     => 'required',
-    //             'mobile_number' => 'required|numeric'
-    //         ]
-    //     );
+    public function updateProfile(Request $request)
+    {
+        $data = $request->all();
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'first_name' => 'required',
+                'last_name'     => 'required',
+                'mobile_number' => 'required|numeric'
+            ]
+        );
 
-    //     if ($validator->fails()) {
-    //         return response()->json(['error' => $validator->errors()], 200);
-    //     }
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 200);
+        }
 
-    // }
+        $user_id = Auth::User()->id;
+        $update_profile =  User::where('id',$user_id)->first();
+        $update_profile->first_name         = $data['first_name'];
+        $update_profile->last_name          = $data['last_name'];
+        $update_profile->mobile_number      = $data['mobile_number'];
+        if ($update_profile->save()) {
+            return response()->json(['success' => true, 'data' => 'User Profile Updated Successfully.'], Response::HTTP_OK);
+        }else{
+             return response()->json(['error' => 'Something went wrong, Please try again later.']);
+        }
 
-    // public function logout()
-    // {
-    //     Auth::guard('api')->logout();
+    }
 
-    //     return response()->json(['status' => 'success', 'message' => 'logout'], 200);
-    // }
+    public function logout()
+    {
+        Auth::guard('api')->logout();
+
+        return response()->json(['status' => 'success', 'message' => 'logout'], 200);
+    }
 
 
     public function respondWithToken($token)
