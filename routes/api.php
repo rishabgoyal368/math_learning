@@ -25,4 +25,5 @@ Route::post('/logout','ApiController@logout');
 Route::post('/get-profile','ApiController@profile'); 
 Route::post('/update-profile','ApiController@updateProfile'); 
 
+Route::post('/app-setting','Api\AppSettingController@index'); 
 

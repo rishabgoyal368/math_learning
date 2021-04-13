@@ -30,8 +30,21 @@
             </li>
         </ul>
     </li>
+    <li class="menu-item">
+        <a href="{{ url('admin/app-setting') }}" class=" menu-link">
+            <span class="menu-label">
+                <span class="menu-name">App Setting</span>
+            </span>
+        </a>
+    </li>
  
-
+   <!--  <li class="menu-item">
+        <a href="{{ url('admin/mcq') }}" class=" menu-link">
+            <span class="menu-label">
+                <span class="menu-name">MCQ'S</span>
+            </span>
+        </a>
+    </li> -->
         </ul>
     </li>
 </ul>

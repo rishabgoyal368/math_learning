@@ -35,23 +35,18 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdminAuth'],function()
 
 	//------Manage User ---------------------------------------------------------------------------
 
-	// //------Category Management  ---------------------------------------------------------------------------
-	// Route::get('/category','Admin\CategoryManagement@index');
-	// Route::match(['get','post'],'/category/add','Admin\CategoryManagement@add');
-	// Route::match(['get','post'],'/category/edit/{id}','Admin\CategoryManagement@edit');
-	// Route::match(['get','post'],'/category/delete/{id}','Admin\CategoryManagement@delete');
-	// //------Category Management  ---------------------------------------------------------------------------
-	
     Route::match(['get','post'],'/reset-password','AuthController@reset_password');
     Route::match(['get','post'],'/my-profile','AuthController@my_profile');
+    
+    //=====================App- Setting=============================================
+    Route::match(['get','post'],'/app-setting','Admin\AppSettingController@index');
+    Route::match(['get','post'],'/app-setting/add','Admin\AppSettingController@add');
+    Route::match(['get','post'],'/app-setting/edit/{id}','Admin\AppSettingController@edit');
+    Route::match(['get','post'],'/app-setting/change-type','Admin\AppSettingController@change_type');
+    Route::any('/app-setting/delete/{id}','Admin\AppSettingController@delete');
+    //=====================App- Setting=============================================
 
-    //-----------------Actor-----------------------------
-
-    // Route::match(['get','post'],'/member','Admin\ActorManagementController@index');
-    // Route::match(['get','post'],'/member/add','Admin\ActorManagementController@add');
-    // Route::match(['get','post'],'/member/edit/{id}','Admin\ActorManagementController@edit');
-    // Route::match(['get','post'],'/member/delete/{id}','Admin\ActorManagementController@delete');
-
-    //-----------------Actor-----------------------------
+    Route::any('/mcq','Admin\McqController@index');
 
 });
+define('CommonError','Something went erong, Please try again later.');
