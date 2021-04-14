@@ -6,6 +6,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\AppSetting;
+
 class AppSettingController extends Controller
 {
     public function index(Request $request){

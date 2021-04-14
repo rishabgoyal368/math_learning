@@ -46,7 +46,17 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdminAuth'],function()
     Route::any('/app-setting/delete/{id}','Admin\AppSettingController@delete');
     //=====================App- Setting=============================================
 
+
+
+    //=====================MCQ ==============================================
     Route::any('/mcq','Admin\McqController@index');
+    Route::any('/mcq/add','Admin\McqController@add_question');
+    Route::any('/mcq/edit/{id}','Admin\McqController@edit_question');
+    Route::any('/mcq/delete/{id}','Admin\McqController@delete');
+    //=====================MCQ ==============================================
+
+
+
 
 });
 define('CommonError','Something went erong, Please try again later.');

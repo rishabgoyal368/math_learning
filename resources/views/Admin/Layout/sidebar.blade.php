@@ -38,13 +38,13 @@
         </a>
     </li>
  
-   <!--  <li class="menu-item">
+    <li class="menu-item">
         <a href="{{ url('admin/mcq') }}" class=" menu-link">
             <span class="menu-label">
                 <span class="menu-name">MCQ'S</span>
             </span>
         </a>
-    </li> -->
+    </li>
         </ul>
     </li>
 </ul>

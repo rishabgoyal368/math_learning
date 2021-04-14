@@ -27,3 +27,12 @@ Route::post('/update-profile','ApiController@updateProfile');
 
 Route::post('/app-setting','Api\AppSettingController@index'); 
 
+Route::post('/mcq','Api\McqController@index');
+
+//=================== Report ====================
+Route::post('/report','Api\McqController@submit_result');
+//=================== Report ====================
+
+//=================== view result ====================
+Route::get('/view-result','Api\McqController@view_result');
+//=================== view result ====================
