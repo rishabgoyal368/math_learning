@@ -54,7 +54,12 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdminAuth'],function()
     Route::any('/mcq/edit/{id}','Admin\McqController@edit_question');
     Route::any('/mcq/delete/{id}','Admin\McqController@delete');
     //=====================MCQ ==============================================
+   
 
+    //=================Report Management =============================
+    Route::match(['get','post'],'/report-list','Admin\ReportController@index'); 
+    Route::match(['get','post'],'/report-list/details','Admin\ReportController@details'); 
+    //=================Report Management =============================
 
 
 
