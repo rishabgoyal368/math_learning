@@ -53,7 +53,6 @@ class User extends Authenticatable implements JWTSubject
             ['id' => @$data['id']],
             [
                 'first_name' => @$data['first_name'],
-                'last_name' => @$data['last_name'],
                 'email' => @$data['email'],
                 // 'email_verified_at' => @$data['email_verified_at'],
                 'mobile_number' => @$data['mobile_number'],

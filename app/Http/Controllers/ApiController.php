@@ -23,7 +23,6 @@ class ApiController extends Controller
             $request->all(),
             [
                 'first_name' => 'required',
-                'last_name'     => 'required',
                 'email'         => 'required|email',
                 'password'     => 'required',
                 'mobile_number' => 'required|numeric'
@@ -43,7 +42,6 @@ class ApiController extends Controller
 
         $user                     = new User();
         $user->first_name         = $data['first_name'];
-        $user->last_name          = $data['last_name'];
         $user->email              = $data['email'];
         $user->mobile_number     = $data['mobile_number'];
         $hash_password          = Hash::make($data['password']);
@@ -54,7 +52,7 @@ class ApiController extends Controller
             $email = $data['email'];
             try {
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-                    Mail::send('emails.user_register_success', ['name' => ucfirst($user['first_name']) . ' ' . $user['last_name'], 'email' => $email, 'password' => $data['password']], function ($message) use ($email, $project_name) {
+                    Mail::send('emails.user_register_success', ['name' => ucfirst($user['first_name']), 'email' => $email, 'password' => $data['password']], function ($message) use ($email, $project_name) {
                         $message->to($email, $project_name)->subject('User registered successfully');
                     });
                 }
@@ -202,7 +200,6 @@ class ApiController extends Controller
             $request->all(),
             [
                 'first_name' => 'required',
-                'last_name'     => 'required',
                 'mobile_number' => 'required|numeric'
             ]
         );
@@ -214,7 +211,6 @@ class ApiController extends Controller
         $user_id = Auth::User()->id;
         $update_profile =  User::where('id',$user_id)->first();
         $update_profile->first_name         = $data['first_name'];
-        $update_profile->last_name          = $data['last_name'];
         $update_profile->mobile_number      = $data['mobile_number'];
         if ($update_profile->save()) {
             return response()->json(['success' => true, 'data' => 'User Profile Updated Successfully.'], Response::HTTP_OK);
