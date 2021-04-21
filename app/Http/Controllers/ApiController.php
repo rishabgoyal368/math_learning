@@ -173,17 +173,6 @@ class ApiController extends Controller
     public function profile(Request $request)
     {
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'token'      => 'required'
-            ]
-        );
-
-        if ($validator->fails()) {
-            return response()->json(['error' => 'Token not found.'], 200);
-        }
-
         try {
             $user = auth()->userOrFail();
         } catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
