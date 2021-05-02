@@ -42,26 +42,6 @@ if (isset($app_setting_details)) {
                                     <input type="number" class="form-control" name="table_number" value="{{ @$app_setting_details['table_number'] }}" placeholder="Table Number">
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Type</label>
-                                        <?php 
-                                            if(@$app_setting_details){
-                                                $disabled = "disabled";
-                                            } else{
-                                                $disabled = " ";
-                                            }
-                                        ?>
-                                    <select name="type" class="form-control" {{@$disabled}}>
-                                        <option disabled selected>Select Type</option>
-                                        <option  value="1" <?php if(@$app_setting_details['type'] == '1'){ echo "selected"; } ?>>Addition</option>
-                                        <option  value="2" <?php if(@$app_setting_details['type'] == '2'){ echo "selected"; } ?>>Substruction</option>
-                                        <option  value="3" <?php if(@$app_setting_details['type'] == '3'){ echo "selected"; } ?>>Multiplication</option>
-                                        <option value="4" <?php if(@$app_setting_details['type'] == '4'){ echo "selected"; } ?>>Division</option>
-                                        <option value="5" <?php if(@$app_setting_details['type'] == '5'){ echo "selected"; } ?>>Square Root</option>
-                                    </select>
-                                </div>
-                            </div>
                             @csrf
                             <div class="form-group">
                                 <input type="submit" value="Submit" class="btn btn-primary">

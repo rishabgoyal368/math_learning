@@ -9,6 +9,5 @@ class AppSetting extends Model
     protected $fillable = [
         'max_number',
         'table_number',
-        'type',
-    ];
+        ];
 }

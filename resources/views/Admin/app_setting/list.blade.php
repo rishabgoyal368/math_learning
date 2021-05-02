@@ -12,9 +12,11 @@
                         App Setting
                     </h4>
                 </div>
+                @if(empty($app_setting))
                 <div class="col-2 text-white p-t-40 p-b-90">
                     <a href="{{url('admin/app-setting/add/')}}" class="add_record">Add App Setting</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>

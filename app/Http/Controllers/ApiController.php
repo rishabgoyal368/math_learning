@@ -211,6 +211,7 @@ class ApiController extends Controller
 
     public function logout()
     {
+    //    return $user = auth()->userOrFail();
         Auth::guard('api')->logout();
 
         return response()->json(['status' => 'success', 'message' => 'logout'], 200);

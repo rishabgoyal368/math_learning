@@ -17,7 +17,6 @@ class CreateAppSettingsTable extends Migration
             $table->id();
             $table->Integer('max_number');
             $table->Integer('table_number');
-            $table->Integer('type')->unique();
             $table->timestamps();
         });
     }
