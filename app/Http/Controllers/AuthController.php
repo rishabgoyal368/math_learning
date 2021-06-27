@@ -11,14 +11,14 @@ class AuthController extends Controller
 {
 	public function login(Request $request)
 	{
-		// Admin::create([
-		// 	'user_name' => 'Rishab Goyal',
-		// 	'email' => 'rishabtest01@yopmail.com',
-		// 	'profile_image' => 'test',
-		// 	'password' => Hash::make('1234'),
-		// 	'mobile_number' => 'sss',
-		// 	'status' => 'Active',
-		// ]);
+//		 Admin::create([
+//		 	'user_name' => 'Rishab Goyal',
+//		 	'email' => 'rishabtest01@yopmail.com',
+//		 	'profile_image' => 'test',
+//			'password' => Hash::make('1234'),
+//		 	'mobile_number' => 'sss',
+//		 	'status' => 'Active',
+//		 ]);
 		if (Auth::guard('admin')->check()) {
 			return redirect('admin/home');
 		}
