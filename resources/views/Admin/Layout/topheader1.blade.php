@@ -1,7 +1,7 @@
  <aside class="admin-sidebar">
         <div class="admin-sidebar-brand">
             <!-- begin sidebar branding-->
-            <img class="admin-brand-logo" src="{{ asset('assets/img/logo.png') }}" width="40" alt="atmos Logo">
+<!--            <img class="admin-brand-logo" src="{{ asset('assets/img/logo.png') }}" width="40" alt="atmos Logo"> -->
             <span class="admin-brand-content font-secondary"><a href='{{url("/admin/home")}}'> {{env('APP_NAME')}}</a></span>
             <!-- end sidebar branding-->
             <div class="ml-auto">
@@ -18,7 +18,7 @@
     <main class="admin-main">
         <header class="admin-header">
             <a href="#" class="sidebar-toggle" data-toggleclass="sidebar-open" data-target="body"> </a>
-            <nav class=" mr-auto my-auto">
+<!--            <nav class=" mr-auto my-auto">
                 <ul class="nav align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" data-target="#siteSearchModal" data-toggle="modal" href="#">
@@ -26,7 +26,7 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </nav> -->
             <nav class=" ml-auto">
                 <ul class="nav align-items-center">
                     <!-- <li class="nav-item">
